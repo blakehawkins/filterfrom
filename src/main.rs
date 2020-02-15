@@ -1,3 +1,5 @@
+use std::io::Write;
+
 use oops::Oops;
 use stdinix::stdinix;
 
@@ -13,8 +15,9 @@ fn main(mut args: paw::Args) -> std::io::Result<()> {
     stdinix(|line| {
         if !banset.contains(line.trim()) {
             println!("{}", line.trim());
+            std::io::stdout().flush()
+        } else {
+            Ok(())
         }
-
-        Ok(())
     })
 }
