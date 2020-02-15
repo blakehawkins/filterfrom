@@ -1,6 +1,6 @@
 [package]
 name = "filterfrom"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["blakehawkins"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -10,5 +10,6 @@ repository = "https://github.com/blakehawkins/filterfrom"
 readme = "README.md"
 
 [dependencies]
+oops = "0.1.0"
 paw = "1.0.0"
 stdinix = "0.1.0"

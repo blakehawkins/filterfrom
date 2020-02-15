@@ -1,11 +1,9 @@
+use oops::Oops;
 use stdinix::stdinix;
 
 #[paw::main]
 fn main(mut args: paw::Args) -> std::io::Result<()> {
-    let ban_path = args.nth(1).ok_or_else(|| std::io::Error::new(
-        std::io::ErrorKind::Other,
-        "Missing banlist",
-    ))?;
+    let ban_path = args.nth(1).oops("Missing banlist")?;
 
     let banset = std::fs::read_to_string(ban_path)?
         .lines()
@@ -14,7 +12,7 @@ fn main(mut args: paw::Args) -> std::io::Result<()> {
 
     stdinix(|line| {
         if !banset.contains(line.trim()) {
-            println!("{}", line);
+            println!("{}", line.trim());
         }
 
         Ok(())
