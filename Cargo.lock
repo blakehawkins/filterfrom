@@ -2,7 +2,7 @@
 # It is not intended for manual editing.
 [[package]]
 name = "filterfrom"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
  "oops 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "paw 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
