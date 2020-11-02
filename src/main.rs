@@ -42,6 +42,10 @@ fn filter(line: &str, column: Option<i32>, allow: bool, list: &HashSet<String>) 
         list.contains(line)
     };
 
+    //               allow    true    false
+    // list_contains
+    // true                   true    false
+    // false                  false   true
     Ok(allow == list_contains)
 }
 
