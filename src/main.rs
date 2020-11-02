@@ -46,7 +46,7 @@ fn filter(line: &str, column: Option<i32>, allow: bool, list: &HashSet<String>) 
     // list_contains
     // true                   true    false
     // false                  false   true
-    Ok(!(allow ^ list_contains))
+    Ok(allow == list_contains)
 }
 
 fn main() -> Result<()> {
