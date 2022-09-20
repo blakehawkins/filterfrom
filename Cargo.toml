@@ -10,6 +10,6 @@ repository = "https://github.com/blakehawkins/filterfrom"
 readme = "README.md"
 
 [dependencies]
+clap = { version = "3", features = ["derive"] }
 oops = "0.1.0"
-structopt = "0.3.20"
 stdinix = "0.1.0"

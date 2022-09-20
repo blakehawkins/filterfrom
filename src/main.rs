@@ -4,7 +4,7 @@ use std::io::{Result, Write};
 use oops::Oops;
 use stdinix::stdinix;
 
-use structopt::StructOpt;
+use clap::StructOpt;
 
 /// A posix-style tool for filtering stdin based on a blocklist/allowlist.
 #[derive(StructOpt, Debug)]
