@@ -4,22 +4,22 @@ use std::io::{Result, Write};
 use oops::Oops;
 use stdinix::stdinix;
 
-use clap::StructOpt;
+use clap::Parser;
 
 /// A posix-style tool for filtering stdin based on a blocklist/allowlist.
-#[derive(StructOpt, Debug)]
-#[structopt(name = "filterfrom")]
+#[derive(Parser, Debug)]
+#[command(name = "filterfrom")]
 struct Opt {
     /// Similar to `-k` in `sort`, if a column is provided, stdin's `column` column is matched against `list`.
-    #[structopt(short, long)]
+    #[arg(short, long)]
     column: Option<i32>,
 
     /// When enabld, the filter is reversed (only matching lines are passsed to stdout).
-    #[structopt(short, long)]
+    #[arg(short, long)]
     allow: bool,
 
     /// File to use as a blocklist (or allowlist).
-    #[structopt(parse(from_os_str))]
+    #[arg()]
     list: std::path::PathBuf,
 }
 
@@ -54,7 +54,7 @@ fn main() -> Result<()> {
         column,
         allow,
         list,
-    } = Opt::from_args();
+    } = Opt::parse();
 
     let set = std::fs::read_to_string(list)?
         .lines()
